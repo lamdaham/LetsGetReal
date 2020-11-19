@@ -34,8 +34,7 @@ public class RealNumber{
   public RealNumber add(RealNumber other){
      //other can be ANY RealNumber, including a RationalNumber
      //or other subclasses of RealNumber (that aren't written yet)
-    value += other.getValue();
-    return null;
+    return (value + other.getValue());
   }
 
   /*
@@ -43,8 +42,7 @@ public class RealNumber{
   *the product of this and the other
   */
   public RealNumber multiply(RealNumber other){
-    value = value * other.getValue();
-    return null;
+    return (value * other.getValue());
   }
 
   /*
@@ -52,8 +50,7 @@ public class RealNumber{
   *this divided by the other
   */
   public RealNumber divide(RealNumber other){
-    value = value / other.getValue();
-    return null;
+    return (value / other.getValue());
   }
 
   /*
@@ -61,7 +58,7 @@ public class RealNumber{
   *this minus the other
   */
   public RealNumber subtract(RealNumber other){
-    value -= other.getValue();
-    return null;
+    ;
+    return (value - other.getValue());
   }
 }
