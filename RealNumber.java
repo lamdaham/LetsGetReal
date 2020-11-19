@@ -61,6 +61,7 @@ public class RealNumber{
   *this minus the other
   */
   public RealNumber subtract(RealNumber other){
+    value -= other.getValue();
     return null;
   }
 }
