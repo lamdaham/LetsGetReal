@@ -10,7 +10,7 @@ public class RealNumber{
   }
 
   public String toString(){
-    return ""+value;
+    return ""+getValue();
   }
   //---------ONLY EDIT BELOW THIS LINE------------
 
@@ -19,7 +19,12 @@ public class RealNumber{
   *Special case: if one is exactly zero, the other must be exactly zero.
   */
   public boolean equals(RealNumber other){
-    return true;
+    double perdiff = Math.abs((getValue() - other.getValue())/getValue());
+    System.out.println(perdiff);
+    if (perdiff<=0.00001) {
+      return true;
+    }
+    return false;
   }
 
   /*
