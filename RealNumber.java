@@ -35,7 +35,7 @@ public class RealNumber{
      //other can be ANY RealNumber, including a RationalNumber
      //or other subclasses of RealNumber (that aren't written yet)
     value += other.getValue();
-     return null;
+    return null;
   }
 
   /*
@@ -43,7 +43,8 @@ public class RealNumber{
   *the product of this and the other
   */
   public RealNumber multiply(RealNumber other){
-        return null;
+    value = value * other.getValue();
+    return null;
   }
 
   /*
