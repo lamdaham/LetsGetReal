@@ -74,7 +74,8 @@ public class RationalNumber extends RealNumber
   *reduced after construction.
   */
   private void reduce(){
-
+    denominator = denominator/gcd(Math.abs(numerator), Math.abs(denominator));
+    numerator = numerator/gcd(Math.abs(numerator), Math.abs(denominator));
   }
   /******************Operations Return a new RationalNumber!!!!****************/
   /**
