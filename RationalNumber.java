@@ -34,13 +34,14 @@ public class RationalNumber extends RealNumber
   *and denominator as this RationalNumber but reversed.
   */
   public RationalNumber reciprocal(){
-    return (denominator/numerator);
+    RationalNumber output = new RationalNumber(getDenominator(),getNumerator());
+    return output;
   }
   /**
   *@return true when the RationalNumbers have the same numerators and denominators, false otherwise.
   */
   public boolean equals(RationalNumber other){
-    return (getNumerator()==other.getNumerator()&&getDenominator==other.getDenominator());
+    return (getNumerator()==other.getNumerator()&&getDenominator()==other.getDenominator());
   }
 
 
