@@ -8,7 +8,7 @@ public class RationalNumber extends RealNumber
   *@param deno the denominator
   */
   public RationalNumber(int nume, int deno){
-    super(nume/deno);//this value is ignored! 
+    super(1);//this value is ignored! 
     if (deno == 0) {
       numerator = 0;
       denominator = 1;
@@ -46,7 +46,9 @@ public class RationalNumber extends RealNumber
   *@return true when the RationalNumbers have the same numerators and denominators, false otherwise.
   */
   public boolean equals(RationalNumber other){
-    return (getNumerator()==other.getNumerator()&&getDenominator()==other.getDenominator());
+    reduce();
+    other.reduce();
+    return (getNumerator()==other.getNumerator() && getDenominator()==other.getDenominator());
   }
 
 

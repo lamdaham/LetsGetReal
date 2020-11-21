@@ -20,7 +20,6 @@ public class RealNumber{
   */
   public boolean equals(RealNumber other){
     double perdiff = Math.abs((getValue() - other.getValue())/getValue());
-    System.out.println(perdiff);
     if (perdiff<=0.00001) {
       return true;
     }
