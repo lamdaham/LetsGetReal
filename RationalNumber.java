@@ -9,8 +9,13 @@ public class RationalNumber extends RealNumber
   */
   public RationalNumber(int nume, int deno){
     super(nume/deno);//this value is ignored! 
+    if (deno == 0) {
+      numerator = 0;
+      denominator = 1;
+    } else {
     numerator = nume;
     denominator = deno;
+    }
   }
 
   public double getValue(){
@@ -49,6 +54,7 @@ public class RationalNumber extends RealNumber
   *@return the value expressed as "3/4" or "8/3"
   */
   public String toString(){
+    reduce();
     return ""+getNumerator()+"/"+getDenominator();
   }
 
@@ -61,7 +67,7 @@ public class RationalNumber extends RealNumber
     /*use euclids method or a better one*/
     //http://sites.math.rutgers.edu/~greenfie/gs2004/euclid.html
     int output = 1;
-    for (int i = 1; i<=Math.min(a, b); i++) {
+    for (int i = 1; i<=Math.max(a, b); i++) {
       if (a%i==0 && b%i==0) {
         output = i;
       }
@@ -75,8 +81,9 @@ public class RationalNumber extends RealNumber
   *reduced after construction.
   */
   private void reduce(){
-    denominator = denominator/gcd(Math.abs(numerator), Math.abs(denominator));
-    numerator = numerator/gcd(Math.abs(numerator), Math.abs(denominator));
+    int p = gcd(Math.abs(numerator), Math.abs(denominator));
+    denominator = denominator/p;
+    numerator = numerator/p;
   }
   /******************Operations Return a new RationalNumber!!!!****************/
   /**
@@ -84,6 +91,7 @@ public class RationalNumber extends RealNumber
   */
   public RationalNumber multiply(RationalNumber other){
     RationalNumber output = new RationalNumber(getNumerator()*other.getNumerator(),getDenominator()*other.getDenominator());
+    output.reduce();
     return output;
   }
 
@@ -91,7 +99,9 @@ public class RationalNumber extends RealNumber
   *Return a new RationalNumber that is the this divided by the other
   */
   public RationalNumber divide(RationalNumber other){
-    RationalNumber output = new RationalNumber(getNumerator()*other.getDenominator(),getDenominator()*other.getNumerator());
+    RationalNumber p = other.reciprocal();
+    RationalNumber output = multiply(p);
+    output.reduce();
     return output;
   }
 
@@ -100,6 +110,7 @@ public class RationalNumber extends RealNumber
   */
   public RationalNumber add(RationalNumber other){
     RationalNumber output = new RationalNumber(getNumerator()*other.getDenominator()+other.getNumerator()*getDenominator(),getDenominator()*other.getDenominator());
+    output.reduce();
     return output;
   }
   /**
@@ -107,6 +118,7 @@ public class RationalNumber extends RealNumber
   */
   public RationalNumber subtract(RationalNumber other){
     RationalNumber output = new RationalNumber(getNumerator()*other.getDenominator()-other.getNumerator()*getDenominator(),getDenominator()*other.getDenominator());
+    output.reduce();
     return output;
   }
 } 
