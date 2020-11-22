@@ -83,6 +83,10 @@ public class RationalNumber extends RealNumber
   *reduced after construction.
   */
   private void reduce(){
+    if (getDenominator()<0) {
+      denominator = denominator * -1;
+      numerator = numerator * -1;
+    }
     int p = gcd(Math.abs(numerator), Math.abs(denominator));
     denominator = denominator/p;
     numerator = numerator/p;
