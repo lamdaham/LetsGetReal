@@ -57,6 +57,9 @@ public class RationalNumber extends RealNumber
   */
   public String toString(){
     reduce();
+    if (getDenominator()==1&&getNumerator()!=0) {
+      return ""+getNumerator();
+    }
     return ""+getNumerator()+"/"+getDenominator();
   }
 
