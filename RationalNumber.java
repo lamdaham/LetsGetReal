@@ -59,6 +59,8 @@ public class RationalNumber extends RealNumber
     reduce();
     if (getDenominator()==1&&getNumerator()!=0) {
       return ""+getNumerator();
+    } else if (getNumerator()==0) {
+      return "0";
     }
     return ""+getNumerator()+"/"+getDenominator();
   }
