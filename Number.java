@@ -16,6 +16,13 @@ public abstract class Number{
   */
   public boolean equals(Number other){
     //TO BE IMPLEMENTED
-      
+    if (getValue()==0) {
+    	return (other.getValue()==0);
+    }
+    double perdiff = Math.abs((getValue() - other.getValue())/getValue());
+    if (perdiff<=0.00001) {
+    	return true;
+    }
+    return false;  
   }
 }
