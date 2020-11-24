@@ -7,6 +7,13 @@ public abstract class Number{
   */
   public int compareTo(Number other){
     //TO BE IMPLEMENTED
+    if (getValue()==other.getValue()) {
+    	return 0;
+    } else if (getValue()>other.getValue()) {
+    	return 1;
+    } else {
+    	return -1;
+    }
 	}
 
   /*
